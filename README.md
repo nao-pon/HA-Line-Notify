@@ -6,6 +6,8 @@ Line is a messaging application widely used in Asia. It has notification service
 This integration is almost based on this [repository](https://github.com/yun-s-oh/Homeassistant/tree/master/custom_components/notify_line) and [this article](https://community.home-assistant.io/t/line-notify-api-integration/56328), but it seems to inactive and contains few errors. I fixed those and add proper documentation.
 
 ## Installation
+ 1. Add This Repository to HACS
+ Or
  1. [Obtain Line Notify personal token.](https://notify-bot.line.me/en/)
  2. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
  3.  Add configuration to configuration.yaml
