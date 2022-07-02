@@ -19,7 +19,7 @@ from aiohttp.hdrs import AUTHORIZATION
 import homeassistant.helpers.config_validation as cv
 """from homeassistant.const import CONF_ACCESS_TOKEN """
 from homeassistant.components.notify import (
-    ATTR_DATA, PLATFORM_SCHEMA, BaseNotificationService)
+    ATTR_DATA, BaseNotificationService)
 
 _LOGGER = logging.getLogger(__name__)
 
