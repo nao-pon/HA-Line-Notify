@@ -34,23 +34,10 @@ IMAGETHURMBNAIL = 'imageThumbnail'
 IMAGEFILE = 'imageFile'
 STKPKID = 'stickerPackageId'
 STKID = 'stickerId'
-
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_ACCESS_TOKEN): cv.string,
-})
-
-def get_service(hass, config, discovery_info=None):
-    """Get the Line notification service."""
-    access_token = config.get(CONF_ACCESS_TOKEN )
-    return LineNotificationService(access_token)
+ACCESS_TOKEN = 'access_token'
                                            
 class LineNotificationService(BaseNotificationService):
-    """Implementation of a notification service for the Line Messaging service."""
-
-    def __init__(self, access_token):
-        """Initialize the service."""
-        self.access_token = access_token                                           
+    """Implementation of a notification service for the Line Messaging service."""                                     
         
     def send_message(self, message="", **kwargs):
         """Send some message."""
@@ -58,8 +45,9 @@ class LineNotificationService(BaseNotificationService):
         url = data.get(ATTR_URL) if data is not None and ATTR_URL in data else None
         file = {IMAGEFILE:open(data.get(ATTR_FILE),'rb')} if data is not None and ATTR_FILE in data else None
         stkpkgid = data.get(ATTR_STKPKGID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None
-        stkid = data.get(ATTR_STKID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None        
-        headers = {AUTHORIZATION:"Bearer "+ self.access_token}
+        stkid = data.get(ATTR_STKID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None 
+        access_token =  if data is not None and ACCESS_TOKEN in data else None       
+        headers = {AUTHORIZATION:"Bearer "+ data.get(ACCESS_TOKEN)}
 
         payload = ({
                     'message':message,
@@ -67,6 +55,7 @@ class LineNotificationService(BaseNotificationService):
                     IMAGETHURMBNAIL:url,
                     STKPKID:stkpkgid,
                     STKID:stkid,          
+                    ACCESSTOKEN:access_token
                 }) 
        
         r=requests.Session().post(BASE_URL, headers=headers, files=file, data=payload)
