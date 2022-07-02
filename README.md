@@ -7,7 +7,7 @@ This integration is almost based on this [repository](https://github.com/yun-s-o
 
 ## Installation
  1. [Obtain Line Notify personal token.](https://notify-bot.line.me/en/)
- 2. Copy `notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
+ 2. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
  3.  Add configuration to configuration.yaml
 ```
 notify:
@@ -30,9 +30,9 @@ Service data can be added in order to send message, image and sticker.
 
 | Key            | Example value                   | Description                   |
 |:---------------|:--------------------------------|:------------------------------|
-| `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
-| `url`          | `https://picsum.photos/600/400` | URL of image file             |
 | `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Access Token From Line Notify |
+| `url`          | `https://picsum.photos/600/400` | URL of image file             |
+| `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
 | `stkpkgid`     | `1`                             | Sticker package ID            |
 | `stkid`        | `2`                             | Sticker ID                    |
 
@@ -52,8 +52,7 @@ configuration.yaml
 ```
 notify:
   - name: line_notification
-    platform: notify_line
-    access_token: 'PASTE_YOUR_PERSONAL_TOKEN_HERE'
+    platform: boy_notify_line
     
 homeassistant:
   whitelist_external_dirs:
@@ -76,6 +75,7 @@ script.yaml
       message: Snapshot from living room camera.
       data:
         file: /tmp/snapshot.jpg
+        access_token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     service: notify.line_notification
 ```
 ## To-Do
