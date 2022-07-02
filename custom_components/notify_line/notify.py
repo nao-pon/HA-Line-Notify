@@ -6,8 +6,7 @@ Example configuration.yaml entry:
 
 notify:
   - name: line_notification
-    platform: notify_line
-    access_token: 'line_access_token'    
+    platform: boy_notify_line
     
 With this custom component loaded, you can send messaged to line Notify.
 """
@@ -20,7 +19,7 @@ from aiohttp.hdrs import AUTHORIZATION
 import homeassistant.helpers.config_validation as cv
 """from homeassistant.const import CONF_ACCESS_TOKEN """
 from homeassistant.components.notify import (
-    ATTR_DATA, PLATFORM_SCHEMA, BaseNotificationService)
+    ATTR_DATA, PLATFORM_SCHEMA)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -35,8 +34,13 @@ IMAGEFILE = 'imageFile'
 STKPKID = 'stickerPackageId'
 STKID = 'stickerId'
 ACCESS_TOKEN = 'access_token'
+
+def get_service(hass, config, discovery_info=None):
+    """Get the Line notification service.
+    access_token = config.get(CONF_ACCESS_TOKEN )"""
+    return LineNotificationService()
                                            
-class LineNotificationService(BaseNotificationService):
+class LineNotificationService():
     """Implementation of a notification service for the Line Messaging service."""                                     
         
     def send_message(self, message="", **kwargs):
