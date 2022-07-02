@@ -4,7 +4,7 @@
     "documentation": "https://github.com/boyphongsakorn/HA-Line-Notify/blob/master/README.md",
     "issue_tracker": "https://github.com/boyphongsakorn/HA-Line-Notify/issues",
     "dependencies": [],
-    "codeowners": ["@yun-s-oh", "@maxmacstn","@boyphongsakorn"],
+    "codeowners": ["@maxmacstn","@boyphongsakorn"],
     "version": "2022.7.1",
     "requirements": []
 }
