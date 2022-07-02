@@ -19,7 +19,7 @@ from aiohttp.hdrs import AUTHORIZATION
 import homeassistant.helpers.config_validation as cv
 """from homeassistant.const import CONF_ACCESS_TOKEN """
 from homeassistant.components.notify import (
-    ATTR_DATA, PLATFORM_SCHEMA)
+    ATTR_DATA, PLATFORM_SCHEMA, BaseNotificationService)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -40,7 +40,7 @@ def get_service(hass, config, discovery_info=None):
     access_token = config.get(CONF_ACCESS_TOKEN )"""
     return LineNotificationService()
                                            
-class LineNotificationService():
+class LineNotificationService(BaseNotificationService):
     """Implementation of a notification service for the Line Messaging service."""                                     
         
     def send_message(self, message="", **kwargs):
