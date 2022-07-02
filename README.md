@@ -20,21 +20,21 @@ notify:
 ## Supported parameters
 Service data can be added in order to send message, image and sticker.
 
-| Key            | Example value                            | Description                        |
-|:---------------|:-----------------------------------------|:-----------------------------------|
-| `message `     | `Hello`                                  | Message to be sent out to recipient|
-| `data `        | `{"url":"https://picsum.photos/600/400"}`| data to be send to line            |
+| Key            | Example value                             | Description                        |
+|:---------------|:------------------------------------------|:-----------------------------------|
+| `message `     | `Hello`                                   | Message to be sent out to recipient|
+| `data `        | `{"url":"https://picsum.photos/600/400"}` | data to be send to line            |
 
 ## Supported data
 Service data can be added in order to send message, image and sticker.
 
-| Key            | Example value                  | Description                   |
-|:---------------|:-------------------------------|:------------------------------|
-| `file`         | `/config/tmp/test.jpg`         | Directory of image file       |
-| `url`          | `https://picsum.photos/600/400`| URL of image file             |
-| `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx`| Access Token From Line Notify |
-| `stkpkgid`     |`1`                             | Sticker package ID            |
-| `stkid`        |`2`                             | Sticker ID                    |
+| Key            | Example value                   | Description                   |
+|:---------------|:--------------------------------|:------------------------------|
+| `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
+| `url`          | `https://picsum.photos/600/400` | URL of image file             |
+| `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Access Token From Line Notify |
+| `stkpkgid`     | `1`                             | Sticker package ID            |
+| `stkid`        | `2`                             | Sticker ID                    |
 
 In order to send sticker, `stkpkgid` and `stkid` must be used together. List of sticker package ID and Sticker ID can be found [here](https://devdocs.line.me/files/sticker_list.pdf).
 
