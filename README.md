@@ -13,7 +13,6 @@ This integration is almost based on this [repository](https://github.com/yun-s-o
 notify:
   - name: line_notification
     platform: boy_notify_line
-    ~~access_token: 'PASTE_YOUR_PERSONAL_TOKEN_HERE'~~ (Move To Supported data)
  ```
 4. Reboot your Home Assistant instance.
 5. Call `notify.line_notification`(with `service data` described below) from script or automation as you desire.
