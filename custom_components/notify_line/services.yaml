@@ -1,0 +1,24 @@
+boy_notify_line:
+  # Service name as shown in UI
+  name: Line Notify
+  # Description of the service
+  description: send Notify to Line Using Line Notify.
+  # If the service accepts entity IDs, target allows the user to specify entities by entity, device, or area. If `target` is specified, `entity_id` should not be defined in the `fields` map. By default it shows only targets matching entities from the same domain as the service, but if further customization is required, target supports the entity, device, and area selectors (https://www.home-assistant.io/docs/blueprint/selectors/). Entity selector parameters will automatically be applied to device and area, and device selector parameters will automatically be applied to area. 
+  target:
+  # Different fields that your service accepts
+  fields:
+    # Key of the field
+    data:
+      # Field name as shown in UI
+      name: data
+      # Description of the field
+      description: data send
+      # Whether or not field is required (default = false)
+      required: true
+      # Example value that can be passed for this field
+      example: {"file": "/media/tmp.jpg"}
+    message:
+      name: message
+      description: message to line
+      required: true
+      example: "Hello"
