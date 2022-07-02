@@ -16,7 +16,7 @@ boy_notify_line:
       # Whether or not field is required (default = false)
       required: true
       # Example value that can be passed for this field
-      example: {"file": "/media/tmp.jpg"}
+      example: {"url":"https://picsum.photos/600/400"}
     message:
       name: message
       description: message to line
