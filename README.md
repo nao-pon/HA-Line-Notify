@@ -7,7 +7,9 @@ This integration is almost based on this [repository](https://github.com/yun-s-o
 
 ## Installation
  1. Add This Repository to HACS
+
  Or
+ 
  1. [Obtain Line Notify personal token.](https://notify-bot.line.me/en/)
  2. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
  3.  Add configuration to configuration.yaml
