@@ -1,4 +1,4 @@
-line_notification:
+notify:
   # Service name as shown in UI
   name: Line Notify
   # Description of the service
