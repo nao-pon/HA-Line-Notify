@@ -1,14 +1,9 @@
 notify:
-  # Service name as shown in UI
-  name: Line Notify
-  # Description of the service
   description: send Notify to Line Using Line Notify.
   # Different fields that your service accepts
   fields:
     # Key of the field
     data:
-      # Field name as shown in UI
-      name: data
       # Description of the field
       description: data send
       # Whether or not field is required (default = false)
@@ -16,7 +11,6 @@ notify:
       # Example value that can be passed for this field
       example: { "url": "https://picsum.photos/600/400" }
     message:
-      name: message
       description: message to line
       required: true
       example: "Hello"
