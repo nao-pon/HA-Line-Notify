@@ -34,6 +34,7 @@ IMAGEFILE = 'imageFile'
 STKPKID = 'stickerPackageId'
 STKID = 'stickerId'
 ACCESS_TOKEN = 'access_token'
+NOTIFICATIONDISABLED = 'notification_disabled'
 
 def get_service(hass, config, discovery_info=None):
     """Get the Line notification service.
