@@ -14,7 +14,6 @@ PLATFORMS = [Platform.NOTIFY]
 
 CONFIG_SCHEMA = cv.removed(DOMAIN, raise_if_present=False)
 
-
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the NFAndroidTV component."""
 
@@ -27,7 +26,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         await hass.async_add_executor_job()
     except ConnectError as ex:
         raise ConfigEntryNotReady(
-            f"Failed to connect to host: {}"
+            f"Failed to connect to host:"
         ) from ex
 
     hass.data.setdefault(DOMAIN, {})
