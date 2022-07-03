@@ -15,7 +15,6 @@ from .const import DEFAULT_NAME
 
 _LOGGER = logging.getLogger(__name__)
 
-
 class NFAndroidTVFlowHandler(config_entries.ConfigFlow, domain="boy_notify_line"):
     """Handle a config flow for NFAndroidTV."""
 
