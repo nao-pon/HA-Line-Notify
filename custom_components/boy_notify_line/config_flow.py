@@ -11,11 +11,12 @@ from homeassistant import config_entries
 from homeassistant.const import CONF_NAME
 from homeassistant.data_entry_flow import FlowResult
 
-from .const import DEFAULT_NAME
+from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-class NFAndroidTVFlowHandler(config_entries.ConfigFlow, domain="boy_notify_line"):
+
+class NFAndroidTVFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for NFAndroidTV."""
 
     async def async_step_user(
@@ -39,7 +40,7 @@ class NFAndroidTVFlowHandler(config_entries.ConfigFlow, domain="boy_notify_line"
             step_id="user",
             data_schema=vol.Schema(
                 {
-                    vol.Required(CONF_NAME, default=DEFAULT_NAME): str,
+                    vol.Required(CONF_NAME): str,
                 }
             ),
             errors=errors,
