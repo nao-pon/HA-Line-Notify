@@ -30,17 +30,22 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             self._async_abort_entries_match(
                 {CONF_NAME: user_input[CONF_NAME]}
             )
-            """if not (error := await self._async_try_connect(user_input[CONF_HOST])):"""
+            return self.async_create_entry(
+                title=user_input[CONF_NAME],
+                data=user_input,
+            )
+            """if not (error := await self._async_try_connect(user_input[CONF_HOST])):
                 return self.async_create_entry(
-                    title=user_input[CONF_NAME]
-                )
+                    title=user_input[CONF_NAME],
+                    data=user_input,
+                )"""
             """errors["base"] = error"""
 
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
                 {
-                    vol.Required(CONF_NAME, default=DEFAULT_NAME): str
+                    vol.Required(CONF_NAME, default=DEFAULT_NAME): str,
                 }
             ),
             errors=errors,
