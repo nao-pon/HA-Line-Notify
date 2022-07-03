@@ -40,7 +40,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=vol.Schema(
                 {
-                    vol.Required(CONF_NAME): str,
+                    vol.Required(CONF_NAME): str
                 }
             ),
             errors=errors,
