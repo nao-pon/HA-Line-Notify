@@ -21,13 +21,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     return True
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up NFAndroidTV from a config entry."""
+    """Set up NFAndroidTV from a config entry.
     try:
-        await hass.async_add_executor_job()
-    except ConnectError as ex:
+    await hass.async_add_executor_job()"""
+    """except ConnectError as ex:
         raise ConfigEntryNotReady(
             f"Failed to connect to host:"
-        ) from ex
+        ) from ex"""
 
     hass.data.setdefault(DOMAIN, {})
 
