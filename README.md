@@ -7,34 +7,37 @@ This integration is almost based on this [repository](https://github.com/yun-s-o
 
 ## Installation
  1. Add This Repository to HACS
+ 2. Go to Settings > Devices & Services
+ 3. Add Integration > Search Line Notify
+ 4. Set Name
+ 5. Call `notify.NameYouSet` (with `service parameters and data` described below) from script or automation as you desire.
 
  Or
  
- 1. [Obtain Line Notify personal token.](https://notify-bot.line.me/en/)
- 2. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
- 3.  Add configuration to configuration.yaml
+ 1. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
+ 2. Add configuration to configuration.yaml
 ```
 notify:
   - name: line_notification
     platform: boy_notify_line
  ```
-4. Reboot your Home Assistant instance.
-5. Call `notify.line_notification`(with `service data` described below) from script or automation as you desire.
+3. Reboot your Home Assistant instance.
+4. Call `notify.line_notification`(with `service parameters and data` described below) from script or automation as you desire.
 
 ## Supported parameters
 Service data can be added in order to send message, image and sticker.
 
-| Key            | Example value                             | Description                        |
-|:---------------|:------------------------------------------|:-----------------------------------|
-| `message `     | `Hello`                                   | Message to be sent out to recipient|
-| `data `        | `{"url":"https://picsum.photos/600/400"}` | data to be send to line            |
+| Key            | Example value                                                                            | Description                        |
+|:---------------|:-----------------------------------------------------------------------------------------|:-----------------------------------|
+| `message `     | `Hello`                                                                                  | Message to be sent out to recipient|
+| `data `        | `{"url":"https://picsum.photos/600/400","access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}` | data to be send to line            |
 
 ## Supported data
 Service data can be added in order to send message, image and sticker.
 
 | Key            | Example value                   | Description                   |
 |:---------------|:--------------------------------|:------------------------------|
-| `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Access Token From Line Notify |
+| `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Access Token From Line Notify [Obtain Line Notify personal token.](https://notify-bot.line.me/en/) |
 | `url`          | `https://picsum.photos/600/400` | URL of image file             |
 | `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
 | `stkpkgid`     | `1`                             | Sticker package ID            |
@@ -62,7 +65,7 @@ homeassistant:
   whitelist_external_dirs:
     - /tmp
  ```
-Note: You need to add whitelist directory in order to save camera image snapshot.
+Note: You need to add whitelist directory in order to save camera image snapshot. (if you use /media folder, don't set that.)
 
 
 script.yaml
