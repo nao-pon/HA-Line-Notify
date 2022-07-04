@@ -43,7 +43,7 @@ Service data can be added in order to send message, image and sticker.
 | `stkpkgid`     | `1`                             | Sticker package ID            |
 | `stkid`        | `2`                             | Sticker ID                    |
 
-In order to send sticker, `stkpkgid` and `stkid` must be used together. List of sticker package ID and Sticker ID can be found [here](https://devdocs.line.me/files/sticker_list.pdf).
+In order to send sticker, `stkpkgid` and `stkid` must be used together. List of sticker package ID and Sticker ID can be found [here](https://developers.line.biz/en/docs/messaging-api/sticker-list/).
 
 JPG and PNG image format are support, but you have to either choose to send with a file or url per round. 
 
