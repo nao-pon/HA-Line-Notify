@@ -37,7 +37,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             Platform.NOTIFY,
             DOMAIN,
             dict(entry.data),
-            entry,
+            hass.data[DATA_HASS_CONFIG],
         )
     )
 
