@@ -44,10 +44,11 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 def get_service(hass, config, discovery_info=None):
     """Get the Line notification service."""
     access_token = config.get(CONF_ACCESS_TOKEN )
-    if CONF_ACCESS_TOKEN is None:
+    """if CONF_ACCESS_TOKEN is None:
         return LineNotificationService(access_token)
     else:
-        return LineNotificationService()
+        return LineNotificationService()"""
+    return LineNotificationService(access_token)
     
                                            
 class LineNotificationService(BaseNotificationService):
