@@ -42,6 +42,7 @@ Service data can be added in order to send message, image and sticker.
 | `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
 | `stkpkgid`     | `1`                             | Sticker package ID            |
 | `stkid`        | `2`                             | Sticker ID                    |
+| `notification_disabled`        | `false`                             | if set true doesn't receive a push notification when the message is sent.|
 
 In order to send sticker, `stkpkgid` and `stkid` must be used together. List of sticker package ID and Sticker ID can be found [here](https://developers.line.biz/en/docs/messaging-api/sticker-list/).
 
