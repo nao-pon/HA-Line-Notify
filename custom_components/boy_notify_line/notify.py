@@ -7,6 +7,7 @@ Example configuration.yaml entry:
 notify:
   - name: line_notification
     platform: boy_notify_line
+    access_token: 'line_access_token'
     
 With this custom component loaded, you can send messaged to line Notify.
 """
@@ -17,9 +18,9 @@ import voluptuous as vol
  
 from aiohttp.hdrs import AUTHORIZATION
 import homeassistant.helpers.config_validation as cv
-"""from homeassistant.const import CONF_ACCESS_TOKEN """
+from homeassistant.const import CONF_ACCESS_TOKEN 
 from homeassistant.components.notify import (
-    ATTR_DATA, BaseNotificationService)
+    ATTR_DATA, PLATFORM_SCHEMA, BaseNotificationService)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -36,13 +37,26 @@ STKID = 'stickerId'
 ACCESS_TOKEN = 'access_token'
 NOTIFICATIONDISABLED = 'notification_disabled'
 
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Optional(CONF_ACCESS_TOKEN): cv.string,
+})
+
 def get_service(hass, config, discovery_info=None):
-    """Get the Line notification service.
-    access_token = config.get(CONF_ACCESS_TOKEN )"""
-    return LineNotificationService()
+    """Get the Line notification service."""
+    access_token = config.get(CONF_ACCESS_TOKEN )
+    if access_token is None:
+        _LOGGER.error("No access token found in configuration")
+        return LineNotificationService(access_token)
+    else:
+        return LineNotificationService()
+    
                                            
 class LineNotificationService(BaseNotificationService):
-    """Implementation of a notification service for the Line Messaging service."""                                     
+    """Implementation of a notification service for the Line Messaging service."""  
+
+    def __init__(self, access_token):
+        """Initialize the service."""
+        self.access_token = access_token                                        
         
     def send_message(self, message="", **kwargs):
         """Send some message."""
@@ -51,7 +65,10 @@ class LineNotificationService(BaseNotificationService):
         file = {IMAGEFILE:open(data.get(ATTR_FILE),'rb')} if data is not None and ATTR_FILE in data else None
         stkpkgid = data.get(ATTR_STKPKGID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None
         stkid = data.get(ATTR_STKID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None 
-        headers = {AUTHORIZATION:"Bearer "+ data.get(ACCESS_TOKEN)}
+        if self.access_token is None:
+            headers = {AUTHORIZATION:"Bearer "+ data.get(ACCESS_TOKEN)}
+        else:
+            headers = {AUTHORIZATION:"Bearer "+ self.access_token}
         notification_disabled = data.get(NOTIFICATIONDISABLED) if data is not None and NOTIFICATIONDISABLED in data else None
 
         payload = ({
