@@ -34,11 +34,11 @@ IMAGETHURMBNAIL = 'imageThumbnail'
 IMAGEFILE = 'imageFile'
 STKPKID = 'stickerPackageId'
 STKID = 'stickerId'
-ACCESS_TOKEN = 'access_token'
+"""ACCESS_TOKEN = 'access_token'"""
 NOTIFICATIONDISABLED = 'notification_disabled'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_ACCESS_TOKEN): cv.string,
+    vol.Required(CONF_ACCESS_TOKEN): cv.string,
 })
 
 def get_service(hass, config, discovery_info=None):

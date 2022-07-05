@@ -6,6 +6,7 @@ from typing import Any
 
 """from notifications_android_tv.notifications import ConnectError, Notifications"""
 import voluptuous as vol
+import homeassistant.helpers.config_validation as cv
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_NAME,CONF_ACCESS_TOKEN
@@ -46,7 +47,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(CONF_NAME, default=DEFAULT_NAME): str,
-                    vol.Required(CONF_ACCESS_TOKEN): str,
+                    vol.Required(CONF_ACCESS_TOKEN): cv.string,
                 }
             ),
             errors=errors,
