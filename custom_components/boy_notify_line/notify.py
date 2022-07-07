@@ -51,7 +51,7 @@ class LineNotificationService(BaseNotificationService):
         file = {IMAGEFILE:open(data.get(ATTR_FILE),'rb')} if data is not None and ATTR_FILE in data else None
         stkpkgid = data.get(ATTR_STKPKGID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None
         stkid = data.get(ATTR_STKID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None 
-        headers = {AUTHORIZATION:"Bearer "+ data.get(ACCESS_TOKEN)}
+        headers = {"AUTHORIZATION":"Bearer "+ data.get(ACCESS_TOKEN)}
         notification_disabled = data.get(NOTIFICATIONDISABLED) if data is not None and NOTIFICATIONDISABLED in data else None
 
         payload = ({
