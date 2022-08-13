@@ -52,7 +52,12 @@ class LineNotificationService(BaseNotificationService):
         stkpkgid = data.get(ATTR_STKPKGID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None
         stkid = data.get(ATTR_STKID) if data is not None and ATTR_STKPKGID in data and ATTR_STKID in data else None 
         headers = {"AUTHORIZATION":"Bearer "+ data.get(ACCESS_TOKEN)}
-        notification_disabled = data.get(NOTIFICATIONDISABLED) if data is not None and NOTIFICATIONDISABLED in data else None
+        """if data.get(NOTIFICATIONDISABLED) = true notification_disabled = true"""
+        if data.get(NOTIFICATIONDISABLED) == True:
+            notification_disabled = True
+        else:
+            notification_disabled = False
+
 
         payload = ({
                     'message':message,
@@ -60,7 +65,7 @@ class LineNotificationService(BaseNotificationService):
                     IMAGETHURMBNAIL:url,
                     STKPKID:stkpkgid,
                     STKID:stkid,          
-                    NOTIFICATIONDISABLED:notification_disabled
+                    notificationDisabled:notification_disabled
                 }) 
        
         r=requests.Session().post(BASE_URL, headers=headers, files=file, data=payload)
