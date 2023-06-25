@@ -8,7 +8,7 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.const import CONF_NAME
+from homeassistant.const import CONF_NAME, CONF_ACCESS_TOKEN
 from homeassistant.data_entry_flow import FlowResult
 
 from .const import DEFAULT_NAME, DOMAIN
@@ -32,7 +32,10 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             )
             return self.async_create_entry(
                 title=user_input[CONF_NAME],
-                data=user_input,
+                data={
+                    CONF_NAME: user_input[CONF_NAME],
+                    CONF_ACCESS_TOKEN: user_input[CONF_ACCESS_TOKEN],
+                },
             )
             """if not (error := await self._async_try_connect(user_input[CONF_HOST])):
                 return self.async_create_entry(
@@ -46,6 +49,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(CONF_NAME, default=DEFAULT_NAME): str,
+                    vol.Required(CONF_ACCESS_TOKEN, default=""): str
                 }
             ),
             errors=errors,
