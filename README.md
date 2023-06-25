@@ -3,8 +3,6 @@ Line Notify custom component for Home Assistant.
 
 Line is a messaging application widely used in Asia. It has notification service called "Line Notify" which you can use their API to send messages and media to your Line account. This integration let you send message, image and sticker to your Line account with Home Assistant.
 
-~~This integration is almost based on this [repository](https://github.com/yun-s-oh/Homeassistant/tree/master/custom_components/notify_line) and [this article](https://community.home-assistant.io/t/line-notify-api-integration/56328), but it seems to inactive and contains few errors. I fixed those and add proper documentation.~~
-
 ## Installation
  1. Add This Repository to HACS
  2. Go to Settings > Devices & Services
@@ -14,15 +12,11 @@ Line is a messaging application widely used in Asia. It has notification service
 
  Or
  
- 1. Copy `boy_notify_line`folder from `custom_components` to your custom_components in Home Assistant directory.
- 2. Add configuration to configuration.yaml
-```
-notify:
-  - name: line_notification
-    platform: boy_notify_line
- ```
-3. Reboot your Home Assistant instance.
-4. Call `notify.line_notification`(with `service parameters and data` described below) from script or automation as you desire.
+1. Copy `line_notify` folder from `custom_components` to your custom_components in Home Assistant directory.
+2. Reboot your Home Assistant instance.
+3. Go To `Settings -> Devices & Services -> [+ ADD INTEGRATION]` and do search "Line Notify".
+4. Set the notification name and access token and finish.
+5. Call `notify.(Notification name as specified in the settings)`(with `service parameters and data` described below) from script or automation as you desire.
 
 ## Supported parameters
 Service data can be added in order to send message, image and sticker.
@@ -56,12 +50,8 @@ JPG and PNG image format are support, but you have to either choose to send with
 
 **Send Camera Snapshot to Line when something was triggered.**
 
-configuration.yaml
+configuration.yaml (Optional)
 ```
-notify:
-  - name: line_notification
-    platform: boy_notify_line
-    
 homeassistant:
   whitelist_external_dirs:
     - /tmp
@@ -83,8 +73,7 @@ script.yaml
       message: Snapshot from living room camera.
       data:
         file: /tmp/snapshot.jpg
-        access_token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    service: notify.line_notification
+    service: notify.(Notification name as specified in the settings)
 ```
 ## To-Do
  - Multi-user support : let each user input their own token upon service call.
