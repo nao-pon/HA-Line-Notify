@@ -1,5 +1,5 @@
 """Constants for the NFAndroidTV integration."""
-DOMAIN: str = "boy_notify_line"
+DOMAIN: str = "line_notify"
 #CONF_DURATION = "duration"
 #CONF_FONTSIZE = "fontsize"
 #CONF_POSITION = "position"

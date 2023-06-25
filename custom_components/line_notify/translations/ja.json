@@ -1,0 +1,17 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "その名称はすでに登録されています。"
+    },
+    "step": {
+      "user": {
+        "title": "LINE通知のための任意の名称とアクセストークン",
+        "description": "名称は通知のエンティティIDとして使用されます。また、アクセストークンは https://notify-bot.line.me/my/ で取得できます。",
+        "data": {
+          "name": "通知の名称",
+          "access_token": "アクセストークン"
+        }
+      }
+    }
+  }
+}

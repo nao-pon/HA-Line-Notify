@@ -1,0 +1,12 @@
+{
+    "domain": "line_notify",
+    "name": "Line Notify",
+    "documentation": "https://github.com/nao-pon/HA-Line-Notify/blob/master/README.md",
+    "issue_tracker": "https://github.com/nao-pon/HA-Line-Notify/issues",
+    "dependencies": [],
+    "codeowners": ["@maxmacstn","@boyphongsakorn","@nao-pon"],
+    "config_flow": true,
+    "iot_class": "cloud_push",
+    "version": "2022.7.1",
+    "requirements": []
+}

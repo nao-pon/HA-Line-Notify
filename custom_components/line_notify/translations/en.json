@@ -1,0 +1,17 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "That name is already registered."
+    },
+    "step": {
+      "user": {
+        "title": "Arbitrary name and access token for LINE notification",
+        "description": "The name will be used as the entity ID for notifications. Also, access tokens can be obtained at https://notify-bot.line.me/my/.",
+        "data": {
+          "name": "Name of notify service",
+          "access_token": "Acccess Token"
+        }
+      }
+    }
+  }
+}

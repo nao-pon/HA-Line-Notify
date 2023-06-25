@@ -6,7 +6,7 @@ Example configuration.yaml entry:
 
 notify:
   - name: line_notification
-    platform: boy_notify_line
+    platform: line_notify
     
 With this custom component loaded, you can send messaged to line Notify.
 """
