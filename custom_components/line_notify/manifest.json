@@ -7,6 +7,6 @@
     "codeowners": ["@maxmacstn","@boyphongsakorn","@nao-pon"],
     "config_flow": true,
     "iot_class": "cloud_push",
-    "version": "2023.6.0",
+    "version": "2023.6.1",
     "requirements": []
 }
