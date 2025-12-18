@@ -4,6 +4,8 @@ Line Notify custom component for Home Assistant.
 Line is a messaging application widely used in Asia. It has notification service called "Line Notify" which you can use their API to send messages and media to your Line account. This integration let you send message, image and sticker to your Line account with Home Assistant.
 
 ## Installation
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=nao-pon&repository=HA-Line-Notify&category=integration)
  1. Add This Repository to HACS as Integration.
  2. Download Line Notify.
 
