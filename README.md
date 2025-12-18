@@ -33,7 +33,6 @@ Service data can be added in order to send message, image and sticker.
 
 | Key            | Example value                   | Description                   |
 |:---------------|:--------------------------------|:------------------------------|
-| `access_token` | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxx` | Access Token From Line Notify [Obtain Line Notify personal token.](https://notify-bot.line.me/en/) |
 | `url`          | `https://picsum.photos/600/400` | URL of image file             |
 | `file`         | `/config/tmp/test.jpg`          | Directory of image file       |
 | `stkpkgid`     | `1`                             | Sticker package ID            |
